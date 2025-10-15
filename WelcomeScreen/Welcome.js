@@ -14,7 +14,7 @@ const { width, height } = Dimensions.get("window");
 export default function Welcome() {
   return (
     <ImageBackground
-      source={require("../assets/logo.png")}
+      source={require("../assets/welbg.jpg")}
       style={styles.background}
       resizeMode="cover"
     >
