@@ -2,7 +2,7 @@ import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { View, Text, Button } from 'react-native';
-import DashboardScreen from './DashboardScreen'; // 👈 add this line
+import DashboardScreen from './screens/DashboardScreen'; // ✅ Make sure the path is correct
 
 const Stack = createNativeStackNavigator();
 
@@ -20,9 +20,12 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Dashboard" component={DashboardScreen} />
+        <Stack.Screen 
+          name="Dashboard" 
+          component={DashboardScreen} 
+          options={{ headerShown: false }} // ✅ Hide top header for clean full-screen dashboard
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
-
