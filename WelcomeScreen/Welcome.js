@@ -6,34 +6,31 @@ import {
   ImageBackground,
   TouchableOpacity,
   Linking,
+  Dimensions,
 } from "react-native";
 
-export default function Welcome({ navigation }) {
+const { width, height } = Dimensions.get("window");
+
+export default function Welcome() {
   return (
     <ImageBackground
-      source={require("../assets/signup.png")} // your image here
+      source={require("../assets/logo.png")}
       style={styles.background}
       resizeMode="cover"
     >
       <View style={styles.overlay}>
-        <View style={styles.container}>
+        <View style={styles.contentBox}>
           <Text style={styles.title}>Welcome to FinTrack</Text>
           <Text style={styles.subtitle}>
             Take control of your finances with our intuitive expense tracking
             and personalized budget planning tools.
           </Text>
 
-          <TouchableOpacity
-            style={styles.loginButton}
-            onPress={() => navigation.navigate("Login")} // optional for future screens
-          >
+          <TouchableOpacity style={styles.loginButton}>
             <Text style={styles.loginText}>Log In</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity
-            style={styles.signupButton}
-            onPress={() => navigation.navigate("SignUp")} // optional for future screens
-          >
+          <TouchableOpacity style={styles.signupButton}>
             <Text style={styles.signupText}>Sign Up</Text>
           </TouchableOpacity>
 
@@ -62,37 +59,43 @@ export default function Welcome({ navigation }) {
 const styles = StyleSheet.create({
   background: {
     flex: 1,
+    width: width,
+    height: height,
   },
   overlay: {
     flex: 1,
-    backgroundColor: "rgba(0, 0, 0, 0.6)",
+    backgroundColor: "rgba(0, 0, 0, 0.55)",
     justifyContent: "center",
     alignItems: "center",
+    paddingHorizontal: 25,
   },
-  container: {
-    width: "85%",
+  contentBox: {
+    width: "100%",
     alignItems: "center",
   },
   title: {
     color: "#fff",
-    fontSize: 28,
+    fontSize: 32,
     fontWeight: "700",
     textAlign: "center",
-    marginBottom: 10,
+    marginBottom: 12,
   },
   subtitle: {
-    color: "#ccc",
+    color: "#E0E0E0",
     fontSize: 16,
     textAlign: "center",
+    lineHeight: 22,
     marginBottom: 40,
+    paddingHorizontal: 10,
   },
   loginButton: {
     backgroundColor: "#00A6FF",
     width: "100%",
     paddingVertical: 15,
-    borderRadius: 30,
+    borderRadius: 25,
     alignItems: "center",
     marginBottom: 15,
+    elevation: 3,
   },
   loginText: {
     color: "#fff",
@@ -100,23 +103,24 @@ const styles = StyleSheet.create({
     fontWeight: "600",
   },
   signupButton: {
-    borderWidth: 1,
-    borderColor: "#1E90FF",
+    borderWidth: 1.5,
+    borderColor: "#00A6FF",
     width: "100%",
     paddingVertical: 15,
-    borderRadius: 30,
+    borderRadius: 25,
     alignItems: "center",
     marginBottom: 40,
   },
   signupText: {
-    color: "#1E90FF",
+    color: "#00A6FF",
     fontSize: 18,
     fontWeight: "600",
   },
   footer: {
-    color: "#aaa",
-    fontSize: 14,
+    color: "#ccc",
+    fontSize: 13,
     textAlign: "center",
+    lineHeight: 20,
     width: "90%",
   },
   link: {
