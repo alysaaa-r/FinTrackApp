@@ -1,4 +1,3 @@
-// Login.js
 import React, { useState } from 'react';
 import { View, StyleSheet, Alert, TouchableOpacity, ScrollView } from 'react-native';
 import { Input, Button, Text } from '@rneui/themed';
@@ -117,3 +116,4 @@ const styles = StyleSheet.create({
     color: '#2c3e50',
   },
 });
+
