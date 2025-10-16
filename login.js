@@ -17,7 +17,7 @@ export default function Login({ navigation }) {
 
     try {
       
-      // 🔐 Sign in user via Firebase Auth
+      
       await signInWithEmailAndPassword(auth, email, password);
       Alert.alert('Welcome Back!', 'You have successfully logged in.');
       navigation.navigate('Dashboard');
@@ -117,3 +117,4 @@ const styles = StyleSheet.create({
   },
 });
     
+
