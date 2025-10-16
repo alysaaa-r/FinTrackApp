@@ -7,17 +7,16 @@ export default function DashboardScreen() {
   const categories = [
     { name: 'Food', spent: 750, limit: 1000 },
     { name: 'Transport', spent: 500, limit: 1000 },
-    { name: 'Fun', spent: 250, limit: 1000 },
+    { name: 'Entertainment', spent: 250, limit: 1000 },
     { name: 'Utilities', spent: 900, limit: 1000 },
   ];
 
   return (
     <ScrollView style={styles.container}>
-      
       {/* Header */}
       <View style={styles.header}>
         <Image
-          source={{ uri: 'https://randomuser.me/api/portraits/women/44.jpg' }} // Placeholder
+          source={{ uri: 'https://randomuser.me/api/portraits/women/44.jpg' }}
           style={styles.profileImage}
         />
         <Text style={styles.title}>Dashboard</Text>
@@ -33,7 +32,7 @@ export default function DashboardScreen() {
       <View style={styles.expensesCard}>
         <Text style={styles.expensesTitle}>Expenses</Text>
         <Text style={styles.expensesValue}>$2,345</Text>
-        <Text style={styles.expensesSubtext}>This Month ↓12%</Text>
+        <Text style={styles.expensesSubtext}>This Month ↓ 12%</Text>
 
         {/* Tabs */}
         <View style={styles.tabs}>
@@ -47,7 +46,8 @@ export default function DashboardScreen() {
         </View>
       </View>
 
-      {/* Budget Section */}
+      {/* Budget Summary */}
+      <Text style={styles.summaryTitle}>Budget Summary</Text>
       <View style={styles.budgetSection}>
         {categories.map(cat => {
           const progress = (cat.spent / cat.limit) * 100;
@@ -62,7 +62,6 @@ export default function DashboardScreen() {
           );
         })}
       </View>
-
     </ScrollView>
   );
 }
@@ -70,7 +69,7 @@ export default function DashboardScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#121212',
+    backgroundColor: '#0A0F16',
     padding: 20,
   },
   header: {
@@ -90,6 +89,7 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
   balanceSection: {
+    alignItems: 'center',
     marginBottom: 30,
   },
   balanceLabel: {
@@ -97,14 +97,14 @@ const styles = StyleSheet.create({
     color: '#aaa',
   },
   balanceValue: {
-    fontSize: 32,
+    fontSize: 34,
     fontWeight: 'bold',
     color: '#fff',
   },
   expensesCard: {
-    backgroundColor: '#1E1E1E',
+    backgroundColor: '#13202C',
     padding: 20,
-    borderRadius: 12,
+    borderRadius: 15,
     marginBottom: 30,
   },
   expensesTitle: {
@@ -112,13 +112,13 @@ const styles = StyleSheet.create({
     color: '#bbb',
   },
   expensesValue: {
-     fontSize: 24,
-     fontWeight: 'bold',
-     color: '#fff',
+    fontSize: 26,
+    fontWeight: 'bold',
+    color: '#fff',
   },
   expensesSubtext: {
     fontSize: 12,
-    color: '#ff7676',
+    color: '#ff4d4d',
     marginBottom: 15,
   },
   tabs: {
@@ -130,8 +130,14 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   tabActive: {
-    color: '#fff',
+    color: '#00BFFF',
     fontWeight: 'bold',
+  },
+  summaryTitle: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 10,
   },
   budgetSection: {
     marginBottom: 50,
@@ -150,13 +156,13 @@ const styles = StyleSheet.create({
   progressBarBackground: {
     width: '100%',
     height: 6,
-    backgroundColor: '#333',
+    backgroundColor: '#1E2A38',
     borderRadius: 5,
     marginTop: 5,
   },
   progressBarFill: {
     height: '100%',
-    backgroundColor: '#4caf50',
+    backgroundColor: '#00BFFF',
     borderRadius: 5,
   },
 });
